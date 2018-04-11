@@ -14,13 +14,15 @@
 
 @implementation ViewController
 
+NSString *cellId = @"cellId";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"Courses";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cellId"];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:cellId];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -28,7 +30,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = UIColor.redColor;
     cell.textLabel.text = @"Course Name";
     return cell;
